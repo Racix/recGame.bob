@@ -14,11 +14,13 @@ public class Driver {
 		Room roomSecond = new Room(200,300, Color.blue);
 		Room roomThird = new Room(200,100, Color.green);
 		Room roomFourth = new Room(300,200, Color.black);
+		Room roomFive = new Room(300,200, Color.white);
 		
 		roomOne.connectNorthTo(roomSecond);
 		roomSecond.connectEastTo(roomThird);
 		roomThird.connectSouthTo(roomFourth);
-		roomFourth.connectWestTo(roomOne);
+		roomFourth.connectWestTo(roomFive);
+		roomFive.connectNorthTo(roomOne);
 	}
 	
 	
