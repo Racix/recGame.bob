@@ -6,6 +6,8 @@ public class Rec {
 		System.out.println("Hello");
 		
 		System.out.println("Hello2");
+		System.out.println("Hello3");
+		System.out.println("This is a print-out from the driver.");
 	}
 
 }
