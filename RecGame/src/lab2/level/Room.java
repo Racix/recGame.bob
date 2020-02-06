@@ -5,6 +5,10 @@ import java.awt.Color;
 
 
 public class Room { 
+	public Room North = null;
+	public Room East = null;
+	public Room South = null;
+	public Room West = null;
 	
 	public Room(int dx, int dy, Color color) {
 		
