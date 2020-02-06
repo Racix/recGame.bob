@@ -21,6 +21,13 @@ public class Driver {
 		roomThird.connectSouthTo(roomFourth);
 		roomFourth.connectWestTo(roomFive);
 		roomFive.connectNorthTo(roomOne);
+		
+		Level l = new Level();
+		l.place(roomOne,0,0);
+		l.place(roomSecond,101,201);
+		l.place(roomThird,301,501);
+		l.place(roomFourth,601,701);
+		l.place(roomFive,901,901);
 	}
 	
 	
