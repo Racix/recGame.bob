@@ -10,6 +10,7 @@ public class Room {
 	public Room South = null;
 	public Room West = null;
 	
+	
 	public Room(int dx, int dy, Color color) {
 		
 	}
