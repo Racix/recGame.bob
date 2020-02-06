@@ -13,6 +13,7 @@ public class Driver {
 		Room roomOne = new Room(100,200, Color.red);
 		Room roomSecound = new Room(100,200, Color.blue);
 		Room roomThird = new Room(100,200, Color.green);
+		Room roomforth = new Room(100,200, Color.green);
 		
 	}
 	
