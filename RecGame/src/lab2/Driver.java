@@ -11,10 +11,14 @@ public class Driver {
 	public void run() {
 		System.out.println("This is a print-out from the driver.");
 		Room roomOne = new Room(100,200, Color.red);
-		Room roomSecound = new Room(100,200, Color.blue);
-		Room roomThird = new Room(100,200, Color.green);
-		Room roomforth = new Room(100,200, Color.green);
+		Room roomSecond = new Room(200,300, Color.blue);
+		Room roomThird = new Room(200,100, Color.green);
+		Room roomFourth = new Room(300,200, Color.black);
 		
+		roomOne.connectNorthTo(roomSecond);
+		roomSecond.connectEastTo(roomThird);
+		roomThird.connectSouthTo(roomFourth);
+		roomFourth.connectWestTo(roomOne);
 	}
 	
 	
