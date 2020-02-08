@@ -7,6 +7,8 @@ import java.util.Observable;
 
 public class Level extends Observable {
 	
+	Room player;
+	
 	ArrayList<Room> length = new ArrayList<Room>();
 	public boolean place(Room r, int x, int y)  {
 		
@@ -27,8 +29,40 @@ public class Level extends Observable {
 		return true;
 	}
 	
+	void playerNorth() {
+		if (player.north != null) {
+			player = player.north;
+			setChanged();
+			notifyObservers();
+		}
+	}
+	
+	void playerEast() {
+		if (player.east != null) {
+			player = player.east;
+			setChanged();
+			notifyObservers();
+		}
+	}
+	
+	void playerSouth() {
+		if (player.south != null) {
+			player = player.south;
+			setChanged();
+			notifyObservers();
+		}
+	}
+	
+	void playerWest() {
+		if (player.west != null) {
+			player = player.west;
+			setChanged();
+			notifyObservers();
+		}
+	}
+	
 	public void firstLocation(Room r) {
-			
+		player = r;	
 	}
 	
 }
