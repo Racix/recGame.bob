@@ -29,6 +29,10 @@ public class Level extends Observable {
 		return true;
 	}
 	
+	public void firstLocation(Room r) {
+		this.player = r;	
+	}
+	
 	void playerNorth() {
 		if (player.north != null) {
 			player = player.north;
@@ -61,8 +65,5 @@ public class Level extends Observable {
 		}
 	}
 	
-	public void firstLocation(Room r) {
-		player = r;	
-	}
 	
 }

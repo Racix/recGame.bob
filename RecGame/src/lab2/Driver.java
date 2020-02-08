@@ -29,6 +29,8 @@ public class Driver {
 		l.place(roomFourth,400,350);
 		l.place(roomFive,400,0);
 		LevelGUI lGUI = new LevelGUI(l,"START");
+		l.firstLocation(roomOne);	
+	
 	}
 	
 	

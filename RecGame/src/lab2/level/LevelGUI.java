@@ -6,15 +6,19 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
 public class LevelGUI implements Observer {
-
+	private BufferedImage img = null;
 	private Level lv;
 	private Display d;
 	
@@ -33,11 +37,12 @@ public class LevelGUI implements Observer {
 		frame.pack();
 		frame.setLocation(0,0);
 		frame.setVisible(true);
+		lv.addObserver(this);
 	}
 	
 	
 	public void update(Observable arg0, Object arg1) {
-		
+		d.repaint();
 	}
 	
 	private class Display extends JPanel {
@@ -75,6 +80,16 @@ public class LevelGUI implements Observer {
 				
 			}
 		}
+		
+		public void player(Graphics g) {
+			try {
+				img = ImageIO.read( new File("src/player.png" ));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			g.drawImage(img, lv.player.x+30, lv.player.y+30, this);
+		}
 		public void colorBorder(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
 			g.setColor(Color.orange);
@@ -90,6 +105,7 @@ public class LevelGUI implements Observer {
 			colorBorder(g);
 			DrawLine(g);
 			colorRoom(g);
+			player(g);
 			
 		}
 		
@@ -105,6 +121,20 @@ public class LevelGUI implements Observer {
 	 		}
 
 	 		public void keyTyped(KeyEvent event) {
+	 			switch(event.getKeyChar()) {
+	 			case 'w':
+	 				lv.player = lv.player.north;
+	 				break;
+	 			case 's':
+	 				lv.player = lv.player.south;
+	 				break;
+	 			case 'a':
+	 				lv.player = lv.player.west;
+	 				break;
+	 			case 'd':
+	 				lv.player = lv.player.east;
+	 				break;
+	 			}
 	 		}
 	 	}
 
