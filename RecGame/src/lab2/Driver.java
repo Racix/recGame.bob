@@ -16,17 +16,17 @@ public class Driver {
 		Room roomFourth = new Room(300,200, Color.black);
 		Room roomFive = new Room(300,200, Color.white);
 		
-		roomOne.connectNorthTo(roomSecond);
-		roomSecond.connectEastTo(roomThird);
-		roomThird.connectSouthTo(roomFourth);
-		roomFourth.connectWestTo(roomFive);
+		roomOne.connectSouthTo(roomThird);
+		roomThird.connectNorthTo(roomSecond);
+		roomSecond.connectEastTo(roomFourth);
+		roomFourth.connectNorthTo(roomFive);
 		roomFive.connectNorthTo(roomOne);
 		
 		Level l = new Level();
 		l.place(roomOne,0,0);
-		l.place(roomSecond,150,0);
-		l.place(roomThird,0,350);
-		l.place(roomFourth,400,250);
+		l.place(roomSecond,150,100);
+		l.place(roomThird,0,450);
+		l.place(roomFourth,400,350);
 		l.place(roomFive,400,0);
 		LevelGUI lGUI = new LevelGUI(l,"START");
 	}

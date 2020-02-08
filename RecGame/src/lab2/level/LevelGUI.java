@@ -27,7 +27,7 @@ public class LevelGUI implements Observer {
 		
 		// TODO: You should change 200 to a value 
 		// depending on the size of the level
-		d = new Display(lv,800,480);
+		d = new Display(lv,1080,600);
 		
 		frame.getContentPane().add(d);
 		frame.pack();
@@ -53,6 +53,20 @@ public class LevelGUI implements Observer {
 			setFocusable(true);
 		}
 		
+		public void DrawLine(Graphics g) {
+			g.setColor(lv.length.get(1).color);
+			g.fillRect(lv.length.get(0).x + lv.length.get(0).dx, lv.length.get(0).y + lv.length.get(0).dy, 100, 5);
+			g.setColor(lv.length.get(2).color);
+			g.fillRect(lv.length.get(2).x + lv.length.get(2).dx, lv.length.get(2).y-50, 5, 100);
+			g.setColor(lv.length.get(3).color);
+			g.fillRect(lv.length.get(2).x + lv.length.get(2).dx, lv.length.get(2).y + lv.length.get(2).dy, 500, 5);
+			g.setColor(lv.length.get(4).color);
+			g.fillRect(lv.length.get(4).x + lv.length.get(4).dx, lv.length.get(4).y + lv.length.get(4).dy, 5, 300);
+			g.setColor(lv.length.get(0).color);
+			g.fillRect(lv.length.get(0).x + lv.length.get(0).dx, lv.length.get(0).y + 35, 500, 5);
+			
+		}
+		
 		public void colorRoom(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
 				System.out.print(lv.length.size());
@@ -74,8 +88,11 @@ public class LevelGUI implements Observer {
 			
 			super.paintComponent(g);
 			colorBorder(g);
+			DrawLine(g);
 			colorRoom(g);
+			
 		}
+		
 		
 
 	 	private class Listener implements KeyListener {
