@@ -12,7 +12,7 @@ public class Driver {
 		System.out.println("This is a print-out from the driver.");
 		Room roomOne = new Room(100,200, Color.red);
 		Room roomSecond = new Room(200,300, Color.blue);
-		Room roomThird = new Room(200,100, Color.green);
+		Room roomThird = new Room(200,100, Color.pink);
 		Room roomFourth = new Room(300,200, Color.black);
 		Room roomFive = new Room(300,200, Color.white);
 		
@@ -24,10 +24,11 @@ public class Driver {
 		
 		Level l = new Level();
 		l.place(roomOne,0,0);
-		l.place(roomSecond,101,201);
-		l.place(roomThird,301,501);
-		l.place(roomFourth,601,701);
-		l.place(roomFive,901,901);
+		l.place(roomSecond,150,0);
+		l.place(roomThird,0,350);
+		l.place(roomFourth,400,250);
+		l.place(roomFive,400,0);
+		LevelGUI lGUI = new LevelGUI(l,"START");
 	}
 	
 	

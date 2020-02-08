@@ -27,7 +27,7 @@ public class LevelGUI implements Observer {
 		
 		// TODO: You should change 200 to a value 
 		// depending on the size of the level
-		d = new Display(lv,200,200);
+		d = new Display(lv,800,480);
 		
 		frame.getContentPane().add(d);
 		frame.pack();
@@ -52,12 +52,29 @@ public class LevelGUI implements Observer {
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
-	
+		
+		public void colorRoom(Graphics g) {
+			for(int i = 0; i < lv.length.size();i++) {
+				System.out.print(lv.length.size());
+				g.setColor(lv.length.get(i).color);
+				g.fillRect(lv.length.get(i).x+20,lv.length.get(i).y+20,lv.length.get(i).dx,lv.length.get(i).dy);
+				
+			}
+		}
+		public void colorBorder(Graphics g) {
+			for(int i = 0; i < lv.length.size();i++) {
+			g.setColor(Color.orange);
+			g.fillRect (lv.length.get(i).x+15,lv.length.get(i).y+15,lv.length.get(i).dx+10,lv.length.get(i).dy+10);
+			}
+		}
 		
 		
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
+
+		public void paintComponent(Graphics g){
 			
+			super.paintComponent(g);
+			colorBorder(g);
+			colorRoom(g);
 		}
 		
 

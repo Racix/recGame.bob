@@ -7,23 +7,23 @@ import java.util.Observable;
 
 public class Level extends Observable {
 	
-	
+	ArrayList<Room> length = new ArrayList<Room>();
 	public boolean place(Room r, int x, int y)  {
-		ArrayList<Room> Length = new ArrayList<Room>();
 		
-		for(int i = 0; i <= Length.size();i++) {
-			int startX = Length.get(i).x;
-			int endX = startX + Length.get(i).dx;
-			int startY = Length.get(i).y;
-			int endY = startY + Length.get(i).dy;
+		for(int i = 0; i < length.size();i++) {
+			int startX = length.get(i).x;
+			int endX = startX + length.get(i).dx;
+			int startY = length.get(i).y;
+			int endY = startY + length.get(i).dy;
 			
-			if ((x+r.dx) >= startX || x<=endX || (y + r.dy) >= startY || y<=endY) {
+			if (!((x+r.dx) <= startX || x>=endX || (y + r.dy) <= startY || y>=endY)) {
+				System.out.println("hej");
 				return false;
 			}
 		}
 		r.x = x;
 		r.y = y;
-		Length.add(r);
+		length.add(r);
 		return true;
 	}
 	
