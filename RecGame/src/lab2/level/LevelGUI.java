@@ -58,7 +58,7 @@ public class LevelGUI implements Observer {
 			setFocusable(true);
 		}
 		
-		public void DrawLine(Graphics g) {
+		public void drawLine(Graphics g) {
 			g.setColor(lv.length.get(1).color);
 			g.fillRect(lv.length.get(0).x + lv.length.get(0).dx, lv.length.get(0).y + lv.length.get(0).dy, 100, 5);
 			g.setColor(lv.length.get(2).color);
@@ -70,6 +70,27 @@ public class LevelGUI implements Observer {
 			g.setColor(lv.length.get(0).color);
 			g.fillRect(lv.length.get(0).x + lv.length.get(0).dx, lv.length.get(0).y + 35, 500, 5);
 			
+		}
+		
+		public void drawLine2(Graphics g) {
+			for (int i = 0; i < lv.length.size();i++) {
+				if(lv.length.get(i).north != null) {
+					g.setColor(lv.length.get(i).north.color);
+					g.fillRect(lv.length.get(i).x+20,lv.length.get(i).y+20,lv.length.get(i).dx,10);
+				}
+				if(lv.length.get(i).east != null) {
+					g.setColor(lv.length.get(i).east.color);
+					g.fillRect(lv.length.get(i).x+lv.length.get(i).dx+10,lv.length.get(i).y+20,10,lv.length.get(i).dy);
+				}
+				if(lv.length.get(i).south != null) {
+					g.setColor(lv.length.get(i).south.color);
+					g.fillRect(lv.length.get(i).x+20,lv.length.get(i).y+lv.length.get(i).dy+10,lv.length.get(i).dx,10);
+				}
+				if(lv.length.get(i).west != null) {
+					g.setColor(lv.length.get(i).west.color);
+					g.fillRect(lv.length.get(i).x+20,lv.length.get(i).y+20,10,lv.length.get(i).dy);
+				}
+			}
 		}
 		
 		public void colorRoom(Graphics g) {
@@ -85,10 +106,9 @@ public class LevelGUI implements Observer {
 			try {
 				img = ImageIO.read( new File("src/player.png" ));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			g.drawImage(img, lv.player.x+30, lv.player.y+30, this);
+			g.drawImage(img, lv.player.x + 50, lv.player.y + 50, this);
 		}
 		public void colorBorder(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
@@ -103,9 +123,10 @@ public class LevelGUI implements Observer {
 			
 			super.paintComponent(g);
 			colorBorder(g);
-			DrawLine(g);
+			drawLine(g);
 			colorRoom(g);
 			player(g);
+			drawLine2(g);
 			
 		}
 		
@@ -123,16 +144,18 @@ public class LevelGUI implements Observer {
 	 		public void keyTyped(KeyEvent event) {
 	 			switch(event.getKeyChar()) {
 	 			case 'w':
-	 				lv.player = lv.player.north;
+	 				lv.playerNorth();
 	 				break;
 	 			case 's':
-	 				lv.player = lv.player.south;
+	 				lv.playerSouth();
 	 				break;
 	 			case 'a':
-	 				lv.player = lv.player.west;
+	 				lv.playerWest();
 	 				break;
 	 			case 'd':
-	 				lv.player = lv.player.east;
+	 				lv.playerEast();
+	 				break;
+	 			default:
 	 				break;
 	 			}
 	 		}

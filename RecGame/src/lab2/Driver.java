@@ -16,11 +16,12 @@ public class Driver {
 		Room roomFourth = new Room(300,200, Color.black);
 		Room roomFive = new Room(300,200, Color.white);
 		
-		roomOne.connectSouthTo(roomThird);
-		roomThird.connectNorthTo(roomSecond);
-		roomSecond.connectEastTo(roomFourth);
+		roomOne.connectEastTo(roomSecond);
+		roomSecond.connectSouthTo(roomThird);
+		roomThird.connectEastTo(roomFourth);
 		roomFourth.connectNorthTo(roomFive);
-		roomFive.connectNorthTo(roomOne);
+		roomFive.connectWestTo(roomOne);
+		
 		
 		Level l = new Level();
 		l.place(roomOne,0,0);
