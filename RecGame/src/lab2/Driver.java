@@ -15,6 +15,7 @@ public class Driver {
 		Room roomThird = new Room(200,100, Color.pink);
 		Room roomFourth = new Room(300,200, Color.black);
 		Room roomFive = new Room(300,200, Color.white);
+		Room roomSix = new Room(300,200, Color.MAGENTA);
 		
 		roomOne.connectEastTo(roomSecond);
 		roomSecond.connectSouthTo(roomThird);
@@ -29,6 +30,7 @@ public class Driver {
 		l.place(roomThird,0,450);
 		l.place(roomFourth,400,350);
 		l.place(roomFive,400,0);
+		l.place(roomSix,400,0);
 		LevelGUI lGUI = new LevelGUI(l,"START");
 		l.firstLocation(roomOne);	
 	

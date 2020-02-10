@@ -56,7 +56,7 @@ public class LevelGUI implements Observer {
 			setFocusable(true);
 		}
 		
-		public void drawLine(Graphics g) {
+		private void drawLine(Graphics g) {
 			g.setColor(lv.length.get(1).color);
 			g.fillRect(lv.length.get(0).x + lv.length.get(0).dx, lv.length.get(0).y + lv.length.get(0).dy, 100, 5);
 			g.setColor(lv.length.get(2).color);
@@ -70,7 +70,7 @@ public class LevelGUI implements Observer {
 			
 		}
 		
-		public void drawLine2(Graphics g) {
+		private void drawLine2(Graphics g) {
 			for (int i = 0; i < lv.length.size();i++) {
 				if(lv.length.get(i).north != null) {
 					g.setColor(lv.length.get(i).north.color);
@@ -91,7 +91,7 @@ public class LevelGUI implements Observer {
 			}
 		}
 		
-		public void colorRoom(Graphics g) {
+		private void colorRoom(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
 				//System.out.print(lv.length.size());
 				g.setColor(lv.length.get(i).color);
@@ -100,7 +100,7 @@ public class LevelGUI implements Observer {
 			}
 		}
 		
-		public void player(Graphics g) {
+		private void player(Graphics g) {
 			try {
 				img = ImageIO.read( new File("src/player.png" ));
 			} catch (IOException e) {
@@ -108,7 +108,7 @@ public class LevelGUI implements Observer {
 			}
 			g.drawImage(img, lv.player.x + 50, lv.player.y + 50, this);
 		}
-		public void colorBorder(Graphics g) {
+		private void colorBorder(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
 			g.setColor(Color.orange);
 			g.fillRect (lv.length.get(i).x+15,lv.length.get(i).y+15,lv.length.get(i).dx+10,lv.length.get(i).dy+10);
@@ -124,7 +124,7 @@ public class LevelGUI implements Observer {
 			drawLine(g);
 			colorRoom(g);
 			player(g);
-			drawLine2(g);
+			//drawLine2(g);
 			
 		}
 		
