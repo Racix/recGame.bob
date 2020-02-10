@@ -16,7 +16,7 @@ public class Room {
 		this.dy = dy;
 		this.dx = dx;
 		this.color = color;
-		System.out.println("The rooms dimention is " + dx +"," + dy + " and the floor has color" + color);
+		//System.out.println("The rooms dimention is " + dx +"," + dy + " and the floor has color" + color);
 	}
 
 	public void connectNorthTo(Room r) {

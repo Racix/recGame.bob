@@ -9,7 +9,7 @@ import lab2.level.Room;
 public class Driver {
 
 	public void run() {
-		System.out.println("This is a print-out from the driver.");
+		//System.out.println("This is a print-out from the driver.");
 		Room roomOne = new Room(100,200, Color.red);
 		Room roomSecond = new Room(200,300, Color.blue);
 		Room roomThird = new Room(200,100, Color.pink);

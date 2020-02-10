@@ -29,8 +29,6 @@ public class LevelGUI implements Observer {
 		JFrame frame = new JFrame(name);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		// TODO: You should change 200 to a value 
-		// depending on the size of the level
 		d = new Display(lv,1080,600);
 		
 		frame.getContentPane().add(d);
@@ -95,7 +93,7 @@ public class LevelGUI implements Observer {
 		
 		public void colorRoom(Graphics g) {
 			for(int i = 0; i < lv.length.size();i++) {
-				System.out.print(lv.length.size());
+				//System.out.print(lv.length.size());
 				g.setColor(lv.length.get(i).color);
 				g.fillRect(lv.length.get(i).x+20,lv.length.get(i).y+20,lv.length.get(i).dx,lv.length.get(i).dy);
 				

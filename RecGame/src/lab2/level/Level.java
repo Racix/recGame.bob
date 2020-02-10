@@ -10,8 +10,8 @@ public class Level extends Observable {
 	Room player;
 	
 	ArrayList<Room> length = new ArrayList<Room>();
+	
 	public boolean place(Room r, int x, int y)  {
-		
 		for(int i = 0; i < length.size();i++) {
 			int startX = length.get(i).x;
 			int endX = startX + length.get(i).dx;
@@ -19,7 +19,7 @@ public class Level extends Observable {
 			int endY = startY + length.get(i).dy;
 			
 			if (!((x+r.dx) <= startX || x>=endX || (y + r.dy) <= startY || y>=endY)) {
-				System.out.println("hej");
+				//System.out.println("False");
 				return false;
 			}
 		}
